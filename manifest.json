@@ -1,0 +1,41 @@
+
+{
+  "manifest_version": 3,
+  "name": "Smart Dropship Pro",
+  "version": "1.1",
+  "description": "Automated Amazon to eBay Dropshipping Helper",
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.amazon.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": [
+    "storage", 
+    "scripting", 
+    "activeTab", 
+    "notifications", 
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://*.amazon.com/*",
+    "https://*/*"
+  ]
+}
